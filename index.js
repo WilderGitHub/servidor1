@@ -9,9 +9,11 @@ app.use(express.json());
 app.use(bodyParser.json());
 
 const db = mysql.createConnection({
-    host: "localhost",
+    //en el front es pues el IP de este servidor, aqui no cambia creo
+    host: "localhost", //
     user: "root",
-    password: "0606",
+    //aqui la contraseña es de pc del laburo, en tu casa es el que ya sabes
+    password: "",
     database: "gente"
     
 });
