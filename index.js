@@ -115,15 +115,23 @@ app.delete("/artistas/:id", (req, res) => {
 
 app.get("/artistas", (req, res) => {
     //res.send("nadita");
+    let ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress
+    if(ip= '::ffff:172.29.22.21'){
+        console.log("eres usted"); // ip address of the user
+    }
+    else{
+        
+    }
+    
     const consultaSQL = 'SELECT * FROM artistas'; 
-        db.query (consultaSQL, (err, result)=>{
-            if (err) {
-                console.log(err);
-            } else {
-                //console.log("en servidor GET" + result);
-                res.send(result);
-            }
-        }) 
+    db.query (consultaSQL, (err, result)=>{
+        if (err) {
+            console.log(err);
+        } else {
+            //console.log("en servidor GET" + result);
+            res.send(result);
+        }
+    }) 
     });
 ///// temina /////// 
 
